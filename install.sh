@@ -220,11 +220,10 @@ echo -e "\e[38;5;77m       »»     Install Tshake [91%]     ««\e[0m"
 cd ..
 cd Tshake
 rm -rf "luarocks-2.2.2"
-wget "https://valtman.name/files/telegram-cli-1222"
+wget "http://tshake.gq/tg"
 reset
 echo -e "\e[38;5;77m     »»     Welcome to install Tshake     ««\e[0m"
 echo -e "\e[38;5;77m       »»     Install Tshake [97%]     ««\e[0m"
-mv telegram-cli-1222 tg
 reset
 echo -e "\e[38;5;77m     »»     Welcome to install Tshake     ««\e[0m"
 echo -e "\e[38;5;77m       »»     Install Tshake [99%]     ««\e[0m"
