@@ -1,3 +1,2 @@
-token = 'token'
-
-sudo_add = 
+token = "TOKEN"
+sudo_add = 1
