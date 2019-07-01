@@ -1,3 +1,3 @@
-token = '726907487:AAHCQT7DbsughYrH_MYC3AYqhfir88B1wfA'
+token = 'token'
 
-sudo_add = 352111144
+sudo_add = 
