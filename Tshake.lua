@@ -7625,20 +7625,16 @@ delete_msg(msg.chat_id_,msgs)
 end 
 end 
 end
-if database:get("lock_edit:tshake"..msg.chat_id_..bot_id) and not result.content_.text_ and not is_creator(msgg) then
-function get_edit(arg,data)
-local username = data.username_
-local name = data.first_name_
-local iduser = data.id_
-if data.username_ ~= false then
-send(msg.chat_id_,0, 1, "⚠┇#تحذير \n🔖┇قام شخصآ ما في المجموعه بالتعديل على الميديا يرجى الانتباه \n📫┇الشخص الي قام بالتعديل \n (@"..data.username_..")" , 1, 'html') 
-else
-send(msg.chat_id_,0, 1, "[⚠┇#تحذير] \n🔖┇قام شخصآ ما في المجموعه بالتعديل على الميديا يرجى الانتباه \n📫┇الشخص الي قام بالتعديل \n ["..data.first_name_.."](T.ME/TSHAKETEAM)" , 1, 'md') 
+if (not is_creator(msgg) ) then
+check_filter_words(result, text)
+if database:get("lock_edit:tshake"..msg.chat_id_..bot_id) then
+send(msg.chat_id_, data.message_id_, 1, " ❗️※ انتبه ! \n هناك شخص قام بالتعديل وتم حذف رسالته " , 1, 'md') 
+local id = msg.message_id_
+local msgs = {[0] = id}
+local chat = msg.chat_id_
+delete_msg(chat,msgs) 
 end
-end
-getUser(result.sender_user_id_,get_edit)
-delete_msg(msg.chat_id_,{[0] = msg.message_id_}) 
-end
+ end
 						
 if (not is_vip(msgg) and text) then
 check_filter_words(result, text)
