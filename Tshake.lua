@@ -7358,13 +7358,14 @@ if text:match("^اصدار$") or text:match("^الاصدار$") or text:match("^
 local text =  [[
 👋┇اهلا بك في سورس تشاكي 
 
-🌐┇<strong>TshAkE TEAM</strong>
+🌐┇<strong>TshakeX TEAM</strong>
 
 🦁┇<a href="https://telegram.me/TshakeX">قناه السورس</a>
 🦁┇<a href="https://t.me/tshakex_files">قناه ملفات السورس</a>
-🔎┇<a href="https://t.me/TshakeX/7">طريقه التنصيب</a>
+🔎┇<a href="https://t.me/TshakeX/63">طريقه التنصيب</a>
 
-🔎┇<a href="https://t.me/Download_Xbot">بوت تحميل ستوريات انستا 💘</a>
+🔎┇<a href="https://t.me/Sayt_Xbot">صنع بوتات سايت 👻</a>
+🔎┇<a href="https://t.me/MAKE_xbot">صنع بوتات تواصل 👥</a>
 🔎┇<a href="https://t.me/SimSimi_Xbot">بوت سمسمي 💘</a>
 
 📮┇<a href="t.me/tshakebbot">لـ تواصل </a> 
