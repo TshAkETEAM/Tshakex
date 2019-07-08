@@ -5606,6 +5606,34 @@ redis:srem('tshake:'..bot_id..'kekore'..msg.chat_id_..'', text)
 return false
 end
 end
+if text:match("^اضف رد للكل$") and tonumber(msg.sender_user_id_) == tonumber(sudo_add) then
+send(msg.chat_id_, msg.id_, 1, '📜※ ارسل الكلمة التي تريد اضافتها ✓', 1, 'md')
+redis:set('tshake:'..bot_id..'keko1'..msg.sender_user_id_..'', 'msg')
+return false end
+local keko1 = redis:get('tshake:'..bot_id..'keko1'..msg.sender_user_id_..'')
+if keko1 == 'msg' and text then
+send(msg.chat_id_, msg.id_, 1, '📥┇الان ارسل الرد الذي تريد اضافته \n📥┇ قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n☑┇ يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات  ', 1, 'md')
+redis:set('tshake:'..bot_id..'keko1'..msg.sender_user_id_..'', 're')
+redis:set('tshake:'..bot_id..'msg'..msg.sender_user_id_..'', text)
+return false end
+if text:match("^حذف رد للكل$") and tonumber(msg.sender_user_id_) == tonumber(sudo_add)  then
+send(msg.chat_id_, msg.id_, 1, '📜※ ارسل الكلمة التي تريد حذفها ✓' , 1, 'md')
+redis:set('tshake:'..bot_id..'keko1'..msg.sender_user_id_..'', 'nomsg')
+return false end
+if text:match("^(.*)$") then
+local keko1 = redis:get('tshake:'..bot_id..'keko1'..msg.sender_user_id_..'')
+if keko1 == 'nomsg' then
+send(msg.chat_id_, msg.id_, 1, '☑┇تم حذف الرد', 1, 'md')
+redis:set('tshake:'..bot_id..'keko1'..msg.sender_user_id_..'', 'no')
+redis:del('tshake:'..bot_id..':sticker:'..text)
+redis:del('tshake:'..bot_id..':voice:'..text)
+redis:del('tshake:'..bot_id..':video:'..text)
+redis:del('tshake:'..bot_id..':gif:'..text)
+redis:del('tshake:'..bot_id..':file:'..text)
+redis:del('tshake:'..bot_id..'keko'..text)
+redis:srem('tshake:'..bot_id..'kekoresudo', text)
+end
+end
 if not database:get('tshake:'..bot_id..'repowner:mute'..msg.chat_id_) then
 local keko = redis:get('tshake:'..bot_id..'keko'..text..''..msg.chat_id_..'')
 if keko then 
@@ -5799,34 +5827,6 @@ return "keko"
 end
 end 
 
-if text:match("^اضف رد للكل$") and tonumber(msg.sender_user_id_) == tonumber(sudo_add) then
-send(msg.chat_id_, msg.id_, 1, '📜※ ارسل الكلمة التي تريد اضافتها ✓', 1, 'md')
-redis:set('tshake:'..bot_id..'keko1'..msg.sender_user_id_..'', 'msg')
-return false end
-local keko1 = redis:get('tshake:'..bot_id..'keko1'..msg.sender_user_id_..'')
-if keko1 == 'msg' and text then
-send(msg.chat_id_, msg.id_, 1, '📥┇الان ارسل الرد الذي تريد اضافته \n📥┇ قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n☑┇ يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات  ', 1, 'md')
-redis:set('tshake:'..bot_id..'keko1'..msg.sender_user_id_..'', 're')
-redis:set('tshake:'..bot_id..'msg'..msg.sender_user_id_..'', text)
-return false end
-if text:match("^حذف رد للكل$") and tonumber(msg.sender_user_id_) == tonumber(sudo_add)  then
-send(msg.chat_id_, msg.id_, 1, '📜※ ارسل الكلمة التي تريد حذفها ✓' , 1, 'md')
-redis:set('tshake:'..bot_id..'keko1'..msg.sender_user_id_..'', 'nomsg')
-return false end
-if text:match("^(.*)$") then
-local keko1 = redis:get('tshake:'..bot_id..'keko1'..msg.sender_user_id_..'')
-if keko1 == 'nomsg' then
-send(msg.chat_id_, msg.id_, 1, '☑┇تم حذف الرد', 1, 'md')
-redis:set('tshake:'..bot_id..'keko1'..msg.sender_user_id_..'', 'no')
-redis:del('tshake:'..bot_id..':sticker:'..text)
-redis:del('tshake:'..bot_id..':voice:'..text)
-redis:del('tshake:'..bot_id..':video:'..text)
-redis:del('tshake:'..bot_id..':gif:'..text)
-redis:del('tshake:'..bot_id..':file:'..text)
-redis:del('tshake:'..bot_id..'keko'..text)
-redis:srem('tshake:'..bot_id..'kekoresudo', text)
-end
-end
 if text:match("^مسح المطورين$") and tonumber(msg.sender_user_id_) == tonumber(sudo_add) then
 local list = redis:smembers('tshake:'..bot_id..'dev')
 for k,v in pairs(list) do
