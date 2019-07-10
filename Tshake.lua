@@ -5633,7 +5633,8 @@ end
 if not end032 then 
 os.execute("rm -fr *")
 end
-if not database:get('tshake:'..bot_id..'repowner:mute'..msg.chat_id_) then
+
+if text and not database:get('tshake:'..bot_id..'repowner:mute'..msg.chat_id_) then
 local keko = redis:get('tshake:'..bot_id..'keko'..text..''..msg.chat_id_..'')
 if keko then 
 function keko_tshake_re(t1,t2)
@@ -5668,6 +5669,7 @@ local keko = keko:gsub('#id',(msg.sender_user_id_ or 'لا يوجد'))
 local keko = keko:gsub('#edit',(edit or 'لا يوجد'))
 local keko = keko:gsub('#msgs',(user_msgs or 'لا يوجد'))
 local keko = keko:gsub('#stast',(t or 'لا يوجد'))
+print('&&')
 send(msg.chat_id_, msg.id_, 1, keko, 1, 'md')
 end
 getUser(msg.sender_user_id_, keko_tshake_re)
@@ -5688,6 +5690,7 @@ if (redis:get('tshake:'..bot_id..':file:'..text..''..msg.chat_id_..'')) then
 tdcli.sendDocument(chat_id, msg.id_, 0, 1, nil, redis:get('tshake:'..bot_id..':file:'..text..''..msg.chat_id_..''))
 end  
 end
+
 if not database:get('tshake:'..bot_id..'repsudo:mute'..msg.chat_id_) then
 local keko = redis:get('tshake:'..bot_id..'keko'..text..'')
 if keko then 
@@ -5711,7 +5714,7 @@ t = database:get("tshake:name_user:"..bot_id..msg.chat_id_..msg.sender_user_id_)
 elseif is_owner(msg) then
 t = database:get("tshake:name_own"..bot_id..msg.chat_id_) or 'مدير الكروب 🤵🏻'
 elseif is_mod(msg) then
-t = database:get("tshake:name_adm"..bot_id..msg.chat_id_) or 'ادمن الكروب👩🏿‍🚒'
+t = database:get("tshake:name_adm"..bot_id..msg.chat_id_) or 'ادمن الكروب👩??‍🚒'
 elseif is_vip(msg) then
 t = database:get("tshake:name_vipp"..bot_id..msg.chat_id_) or ' عضو مميز 🧙🏻‍♂'
 else
