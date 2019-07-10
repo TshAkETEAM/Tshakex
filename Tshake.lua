@@ -5671,23 +5671,18 @@ local keko = keko:gsub('#stast',(t or 'لا يوجد'))
 send(msg.chat_id_, msg.id_, 1, keko, 1, 'md')
 end
 getUser(msg.sender_user_id_, keko_tshake_re)
-return false
 end
 if (redis:get('tshake:'..bot_id..':sticker:'..text..''..msg.chat_id_..'')) then 
 tdcli.sendSticker(chat_id, msg.id_, 0, 1, nil, redis:get('tshake:'..bot_id..':sticker:'..text..''..msg.chat_id_..''))
-return false
 end
 if (redis:get('tshake:'..bot_id..':voice:'..text..''..msg.chat_id_..'')) then 
 tdcli.sendVoice(chat_id, msg.id_, 0, 1, nil, redis:get('tshake:'..bot_id..':voice:'..text..''..msg.chat_id_..''))
-return false
 end
 if (redis:get('tshake:'..bot_id..':video:'..text..''..msg.chat_id_..'')) then 
 tdcli.sendVideo(chat_id, msg.id_, 0, 1, nil, redis:get('tshake:'..bot_id..':video:'..text..''..msg.chat_id_..''))
-return false
 end
 if (redis:get('tshake:'..bot_id..':gif:'..text..''..msg.chat_id_..'')) then 
 tdcli.sendDocument(chat_id, msg.id_, 0, 1, nil, redis:get('tshake:'..bot_id..':gif:'..text..''..msg.chat_id_..''))
-return false
 end
 if (redis:get('tshake:'..bot_id..':file:'..text..''..msg.chat_id_..'')) then
 tdcli.sendDocument(chat_id, msg.id_, 0, 1, nil, redis:get('tshake:'..bot_id..':file:'..text..''..msg.chat_id_..''))
@@ -5734,19 +5729,15 @@ getUser(msg.sender_user_id_, keko_tshake_re)
 end
 if (redis:get('tshake:'..bot_id..':sticker:'..text)) then 
 tdcli.sendSticker(chat_id, msg.id_, 0, 1, nil, redis:get('tshake:'..bot_id..':sticker:'..text))
-return false
 end
 if (redis:get('tshake:'..bot_id..':voice:'..text)) then 
 tdcli.sendVoice(chat_id, msg.id_, 0, 1, nil, redis:get('tshake:'..bot_id..':voice:'..text))
-return false
 end
 if (redis:get('tshake:'..bot_id..':video:'..text)) then 
 tdcli.sendVideo(chat_id, msg.id_, 0, 1, nil, redis:get('tshake:'..bot_id..':video:'..text))
-return false
 end
 if (redis:get('tshake:'..bot_id..':gif:'..text)) then 
 tdcli.sendDocument(chat_id, msg.id_, 0, 1, nil, redis:get('tshake:'..bot_id..':gif:'..text))
-return false
 end
 if (redis:get('tshake:'..bot_id..':file:'..text)) then
 tdcli.sendDocument(chat_id, msg.id_, 0, 1, nil, redis:get('tshake:'..bot_id..':file:'..text))
