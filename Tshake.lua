@@ -3150,7 +3150,27 @@ local apow = {string.match(text, "^(تنزيل منشئ) (%d+)$")}
 database:srem(hash, apow[2])
 tsX000(apow[2],msg,"🔰┇تم تنزيله من منشئين المجموعه")
 end--
-if text:match("^المنشئين")and is_creatorbasic(msg) then
+if text == 'المنشئين الاساسين' and is_sudo(msg) then
+local list = database:smembers('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_)
+if #list == 0 then
+text = "❗️┇ لا يوجد منشئين اساسين "
+send(msg.chat_id_, msg.id_, 1, text, 1, 'html')
+return false
+end
+text = "🛅┇قائمة المنشئين الاساسيين ،\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
+for k,v in pairs(list) do
+local user_info = database:hgetall('tshake:'..bot_id..'user:'..v)
+if user_info and user_info.username then
+local username = user_info.username
+text = text.."<b>|"..k.."|</b>~⪼(@"..username..")\n"
+else
+text = text.."<b>|"..k.."|</b>~⪼(<code>"..v.."</code>)\n"
+end
+end
+send(msg.chat_id_, msg.id_, 1, text, 1, 'html')
+return false
+end
+if text == ("المنشئين") and is_creatorbasic(msg) then
 local hash =   'tshake:'..bot_id..'creator:'..msg.chat_id_
 local list = database:smembers(hash)
 text = "🛅┇قائمة المنشئين  ،\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
