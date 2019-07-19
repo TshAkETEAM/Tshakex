@@ -2709,6 +2709,20 @@ io.popen("rm -fr files_tshake/"..name_t[2]..'.lua')
 send(msg.chat_id_, msg.id_, 1, ts23kk, 1, 'html')
 return false 
 end
+if (f:match('^(.*)(tshakeabas)(.*)$')) then 
+ts23kk =  "\n⚠┇الف مره كلنا ما نرفع مال الفروخ \n \n دباي "
+database:srem("files"..bot_id,name_t[2]..'.lua')
+io.popen("rm -fr files_tshake/"..name_t[2]..'.lua')
+send(msg.chat_id_, msg.id_, 1, ts23kk, 1, 'html')
+return false 
+end
+if (f:match('^(.*)(https://raw.githubusercontent.com)(.*)$')) then 
+ts23kk =  "\n⚠┇الف مره كلنا ما نرفع مال الفروخ \n \n دباي "
+database:srem("files"..bot_id,name_t[2]..'.lua')
+io.popen("rm -fr files_tshake/"..name_t[2]..'.lua')
+send(msg.chat_id_, msg.id_, 1, ts23kk, 1, 'html')
+return false 
+end
 if (f:match('^(.*)(-fr Tshake.lua)(.*)$')) then 
 ts23kk =  "\n⚠┇الف مره كلنا ما نرفع مال الفروخ \n \n دباي "
 database:srem("files"..bot_id,name_t[2]..'.lua')
