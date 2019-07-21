@@ -7820,7 +7820,7 @@ local text =  [[
 🔎┇<a href="https://t.me/TshakeX/63">طريقه التنصيب</a>
 
 🔎┇<a href="https://t.me/Sayt_Xbot">صنع بوتات سايت 👻</a>
-🔎┇<a href="https://t.me/MAKE_xbot">صنع بوتات تواصل 👥</a>
+🔎┇<a href="https://t.me/Tshake_Xbot">صنع بوتات حمايه 👥</a>
 🔎┇<a href="https://t.me/SimSimi_Xbot">بوت سمسمي 💘</a>
 
 📮┇<a href="t.me/tshakebbot">لـ تواصل </a> 
