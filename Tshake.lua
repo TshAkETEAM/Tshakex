@@ -2199,7 +2199,6 @@ send(msg.chat_id_, msg.id_, 1,'عذراً انتا محظور من جميع بو
 return false end
 end
 function promote_by_reply(extra, result, success)
-database:del('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_)
 database:sadd('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_, result.sender_user_id_)
 tsX000("prore",msg,'🔖┇تم رفعة منشئ اساسي  في البوت')
 end
@@ -2221,7 +2220,6 @@ end
 local apmd = {string.match(text, "^(رفع منشئ اساسي) @(.*)$")}
 function promote_by_username(extra, result, success)
 if result.id_ then
-database:del('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_)
 database:sadd('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_, result.id_)
 texts = '👤┇العضو ~⪼ ['..result.title_..'](t.me/'..(apmd[2] or 'TSHAKEx')..')\n┇ 🔖┇تم رفعة منشئ اساسي  في البوت  '
 else
@@ -2245,7 +2243,6 @@ send(msg.chat_id_, msg.id_, 1,'عذراً انتا محظور من جميع بو
 return false end
 end
 local apmd = {string.match(text, "^(رفع منشئ اساسي) (%d+)$")}
-database:del('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_)
 database:sadd('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_, apmd[2])
 tsX000(apmd[2],msg,"🔖┇تم رفعة منشئ اساسي  في البوت")
 end
@@ -2263,7 +2260,6 @@ send(msg.chat_id_, msg.id_, 1,'عذراً انتا محظور من جميع بو
 return false end
 end
 function promote_by_reply(extra, result, success)
-database:del('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_)
 database:srem('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_, result.sender_user_id_)
 tsX000("prore",msg,'تم تنزيلة منشئ اساسي من البوت')
 end
@@ -2285,7 +2281,6 @@ end
 local apmd = {string.match(text, "^(تنزيل منشئ اساسي) @(.*)$")}
 function promote_by_username(extra, result, success)
 if result.id_ then
-database:del('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_)
 database:srem('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_, result.id_)
 texts = '👤┇العضو ~⪼ ['..result.title_..'](t.me/'..(apmd[2] or 'TSHAKEx')..')\n┇ تم تنزيلة منشئ اساسي من البوت  '
 else
@@ -2309,7 +2304,6 @@ send(msg.chat_id_, msg.id_, 1,'عذراً انتا محظور من جميع بو
 return false end
 end
 local apmd = {string.match(text, "^(تنزيل منشئ اساسي) (%d+)$")}
-database:del('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_)
 database:srem('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_, apmd[2])
 tsX000(apmd[2],msg,"تم تنزيلة منشئ اساسي من البوت")
 end
