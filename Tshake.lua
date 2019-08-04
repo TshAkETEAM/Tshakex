@@ -2184,7 +2184,12 @@ if (text and text == 'تعطيل المغادره') and tonumber(msg.sender_user
 send(msg.chat_id_, msg.id_, 1, '☑┇تم تعطيل مغادره البوت', 1, 'md')
 database:set('tshake:'..bot_id..'leave:groups',true)
 end
-
+if text == ("مسح الاساسين") then
+text = '☑┇تم مسح قائمه المنشئين الاساسين'
+database:del('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_)
+send(msg.chat_id_, msg.id_, 1, text, 1, 'md')
+return false
+end
 if text:match("^رفع منشئ اساسي$") and msg.reply_to_message_id_ then
 local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
 vardump(res)
