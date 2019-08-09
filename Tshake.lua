@@ -327,7 +327,6 @@ chat_id_ = chat_id,
 user_id_ = user_id
 },cb or dl_cb, cmd)
 end
-o = tdcli.unmute(123453)
 --         »»                 getChatId                         ««              --
 function getChatId(id)
 local chat = {}
