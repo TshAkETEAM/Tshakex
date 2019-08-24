@@ -8365,7 +8365,7 @@ function get_info(arg,data)
 if data.username_ ~= false then
 send(msg.chat_id_,0, 1, "⚠┇العضو : {["..data.first_name_.."](T.ME/"..data.username_..")}\n📛┇["..taha.."] \n" , 1, 'md') 
 else
-send(msg.chat_id_,0, 1, "⚠┇العضو : {["..data.first_name_.."](T.ME/TSHAKETEAM)}\n📛┇["..taha.."] \n" , 1, 'md') 
+send(msg.chat_id_,0, 1, "⚠┇العضو : {["..data.first_name_.."](T.ME/TSHAKex)}\n📛┇["..taha.."] \n" , 1, 'md') 
 end
 end
 getUser(result.sender_user_id_,get_info)
