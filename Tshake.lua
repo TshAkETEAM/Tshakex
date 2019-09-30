@@ -7822,10 +7822,10 @@ local text =  [[
 🦁┇<a href="https://telegram.me/TshakeX">قناه السورس</a>
 🦁┇<a href="https://t.me/tshakex_files">قناه ملفات السورس</a>
 
-🔎┇<a href="https://t.me/TshakeMake_BOT">صنع بوتات حمايه 👥</a>
+🔎┇<a href="https://t.me/TshakeMake_BOT">صنع بوتات حمايه 🥇</a>
 🔎┇<a href="https://t.me/SimSimi_Xbot">بوت سمسمي 💘</a>
 🔎┇<a href="https://t.me/Zaraf_Xbot">بوت زخرفه ⚜️</a>
-🔎┇<a href="https://t.me/YouTube_Xbot">بوت يوتيوب ⚜️</a>
+🔎┇<a href="https://t.me/YouTube_Xbot">بوت يوتيوب 📥</a>
 
 📮┇<a href="t.me/tshakebbot">لـ تواصل </a> 
 ]]
