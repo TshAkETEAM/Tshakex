@@ -3023,26 +3023,64 @@ return false
 end
 end
 if (text and (is_creator(msg) or is_creatorbasic(msg))) then
-if text:match("اضف امر (.*)") then 
+if text and text:match("اضف امر (.*)") then 
 local tshake_edis = {string.match(text, "^اضف امر (.*)$")}
 send(msg.chat_id_, msg.id_, 1, "☑┇ ارسال الان الامر الجديد", 1, 'md')
-database:set("tsahke:new:msg:"..msg.chat_id_..msg.sender_user_id_..bot_id,tshake_edis[1])
-elseif (database:get("tsahke:new:msg:"..msg.chat_id_..msg.sender_user_id_..bot_id)) then 
+database:set("tsahke:new:msg:amr:"..msg.chat_id_..msg.sender_user_id_..bot_id,tshake_edis[1])
+database:sadd('tshake:'..bot_id..'tshakenwe:'..msg.chat_id_,tshake_edis[1])
+elseif (database:get("tsahke:new:msg:amr:"..msg.chat_id_..msg.sender_user_id_..bot_id)) then 
 send(msg.chat_id_, msg.id_, 1, "☑┇ تم الحفظ بنجاح", 1, 'md')
-database:set("tshake:edit:text:su:new:"..bot_id..msg.chat_id_..database:get("tsahke:new:msg:"..msg.chat_id_..msg.sender_user_id_..bot_id),text)
-database:set("tshake:edit:text:su:new2:"..bot_id..msg.chat_id_..text,database:get("tsahke:new:msg:"..msg.chat_id_..msg.sender_user_id_..bot_id))
-database:del("tsahke:new:msg:"..msg.chat_id_..msg.sender_user_id_..bot_id)
+database:set("tshake:edit:text:su:newamr:"..bot_id..msg.chat_id_..database:get("tsahke:new:msg:amr:"..msg.chat_id_..msg.sender_user_id_..bot_id),text)
+database:set("tshake:edit:text:su:newamr2:"..bot_id..msg.chat_id_..text,database:get("tsahke:new:msg:amr:"..msg.chat_id_..msg.sender_user_id_..bot_id))
+database:del("tsahke:new:msg:amr:"..msg.chat_id_..msg.sender_user_id_..bot_id)
 end  
+if text and text:match("^مسح امر (.*)") then 
+local t = {string.match(text, "^مسح امر (.*)$")}
+local klma = database:get("tshake:edit:text:su:newamr:"..bot_id..msg.chat_id_..t[1])
+if klma ~= nil then
+database:del("tshake:edit:text:su:newamr2:"..bot_id..msg.chat_id_..klma)
+database:del("tshake:edit:text:su:newamr:"..bot_id..msg.chat_id_..t[1])
+database:srem('tshake:'..bot_id..'tshakenwe:'..msg.chat_id_,klma)
+send(msg.chat_id_, msg.id_, 1, "☑┇ تم المسح بنجاح", 1, 'md')
+else
+send(msg.chat_id_, msg.id_, 1, "☑┇ عذرآ لا يوجد امر بهاذا الاسم", 1, 'md')
+end
+end
+if text == 'الاوامر الاضافيه' then
+local list = database:smembers('tshake:'..bot_id..'tshakenwe:'..msg.chat_id_)
+if #list == 0 then
+send(msg.chat_id_, msg.id_, 1,'🔖┇لا توجد اوامر مضافه', 'html')
+return false
+end
+t = '📝┇قائمه الاوامر المضافه هنا\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n'
+for k,v in pairs(list) do
+var = database:get("tshake:edit:text:su:newamr:"..bot_id..msg.chat_id_..v)
+if var then
+t = t..''..k..'- '..v..' » ('..var..')\n'
+else
+t = t..''..k..'- '..v..'\n'
+end
+end
+send(msg.chat_id_, msg.id_, 1,t, 'html')
+end
+
+if text == 'مسح الاوامر المضافه' then 
+local list = database:smembers('tshake:'..bot_id..'tshakenwe:'..msg.chat_id_)
+for k,v in pairs(list) do
+local klma = database:get("tshake:edit:text:su:newamr:"..bot_id..msg.chat_id_..v)
+if klma ~= nil then
+database:del("tshake:edit:text:su:newamr2:"..bot_id..msg.chat_id_..klma)
+database:del("tshake:edit:text:su:newamr:"..bot_id..msg.chat_id_..v)
+end
+end
+database:del('tshake:'..bot_id..'tshakenwe:'..msg.chat_id_)
+send(msg.chat_id_, msg.id_, 1,"📛┇تم مسح الاوامر جميعها", 'md')
+end
+
 if (text and text == 'مسح امر المطور بالكليشه') and tonumber(msg.sender_user_id_) == tonumber(sudo_add) then
 redis:del('tshake:'..bot_id..'text_sudo', text)
 send(msg.chat_id_, msg.id_, 1, '☑┇تم حذف الكليشه ', 1, 'html')
 return "tshake"
-end
-if text:match("^مسح امر (.*)") then 
-local t = {string.match(text, "^مسح امر (.*)$")}
-database:del("tshake:edit:text:su:new2:"..bot_id..msg.chat_id_..database:get("tshake:edit:text:su:new:"..bot_id..msg.chat_id_..t[1]))
-database:del("tshake:edit:text:su:new:"..bot_id..msg.chat_id_..t[1])
-send(msg.chat_id_, msg.id_, 1, "☑┇ تم المسح بنجاح", 1, 'md')
 end
 end
 
@@ -7951,10 +7989,11 @@ return "TsHaKe"
 end
 end
 if data.message_.content_.text_ then   
-if database:get("tshake:edit:text:su:new2:"..bot_id..data.message_.chat_id_..data.message_.content_.text_) then
-local tshake_edit_text = database:get("tshake:edit:text:su:new2:"..bot_id..data.message_.chat_id_..data.message_.content_.text_)
+if database:get("tshake:edit:text:su:newamr2:"..bot_id..data.message_.chat_id_..data.message_.content_.text_) then
+local tshake_edit_text = database:get("tshake:edit:text:su:newamr2:"..bot_id..data.message_.chat_id_..data.message_.content_.text_)
+print(tshake_edit_text)
 if tshake_edit_text then
-data.message_.content_.text_ = tshake_edit_text
+data.message_.content_.text_ = (tshake_edit_text or data.message_.content_.text_)
 end
 end
 end
