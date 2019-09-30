@@ -2525,20 +2525,25 @@ database:del("thsake:gog"..bot_id)
 database:del('tshake:'..bot_id.."groups")
 end
 end 
-if text:match("^روابط الكروبات$") then
+		if text == ("روابط الكروبات") then
 local gpss = database:smembers('tshake:'..bot_id.."groups") or 0
 text233 = '📊┇روابط الكروبات\n\n'
 for i=1, #gpss do
-local link = database:get('tshake:'..bot_id.."group:link"..gpss[i])
-text233 = text233.."|"..i.."| ~⪼ "..gpss[i].."\n ~⪼ "..(link or  "لا يوجد رابط").."\n"
+local link = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..gpss[i]))
+if database:get('tshake:'..bot_id.."group:link"..gpss[i]) then 
+text233 = text233.."|"..i.."| ~⪼ "..gpss[i].."\n ~⪼ "..(database:get('tshake:'..bot_id.."group:link"..gpss[i])).."\n"
+else
+text233 = text233.."|"..i.."| ~⪼ "..gpss[i].."\n ~⪼ "..(link.result or ' لا توجد روابط ').."\n"
 end
-local f = io.open('TshAkE.txt', 'w')
+end
+local f = io.open('TshAkE_Links.txt', 'w')
 f:write(text233)
 f:close()
 local tshakee = 'https://api.telegram.org/bot' .. token .. '/sendDocument'
-local curl = 'curl "' .. tshakee .. '" -F "chat_id=' .. msg.chat_id_ .. '" -F "document=@' .. 'TshAkE.txt' .. '"'
-io.popen(curl)
+local curl = 'curl "' .. tshakee .. '" -F "chat_id=' .. msg.chat_id_ .. '" -F "document=@' .. 'TshAkE_Links.txt' .. '"'
+io.popen(curl) 
 end
+		----------------
 if text and (text == "الكروبات المتفاعله" or text == "روابط الكروبات المتفاعله") then
 local gpss = database:smembers("thsake:good"..bot_id..os.date("%d")) or 0
 text233 = '📊┇روابط الكروبات المتفاعله\n\n'
