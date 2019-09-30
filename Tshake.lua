@@ -6785,6 +6785,7 @@ if not database:get('tshake:'..bot_id..'pin:mute'..msg.chat_id_) then
 pin(msg.chat_id_,msg.reply_to_message_id_,0)
 database:set('tshake:'..bot_id..'pinnedmsg'..msg.chat_id_,msg.reply_to_message_id_)
 send(msg.chat_id_, msg.id_, 1, '⚜️┇ تم تثبيت الرسالة  ',1, 'md')
+return false
 else
 send(msg.chat_id_, msg.id_, 1, '☑┇التثبيت معطل',1, 'md')
 end
@@ -7820,11 +7821,11 @@ local text =  [[
 
 🦁┇<a href="https://telegram.me/TshakeX">قناه السورس</a>
 🦁┇<a href="https://t.me/tshakex_files">قناه ملفات السورس</a>
-🔎┇<a href="https://t.me/TshakeX/63">طريقه التنصيب</a>
 
-🔎┇<a href="https://t.me/Sayt_Xbot">صنع بوتات سايت 👻</a>
-🔎┇<a href="https://t.me/Tshake_Xbot">صنع بوتات حمايه 👥</a>
+🔎┇<a href="https://t.me/TshakeMake_BOT">صنع بوتات حمايه 👥</a>
 🔎┇<a href="https://t.me/SimSimi_Xbot">بوت سمسمي 💘</a>
+🔎┇<a href="https://t.me/Zaraf_Xbot">بوت زخرفه ⚜️</a>
+🔎┇<a href="https://t.me/YouTube_Xbot">بوت يوتيوب ⚜️</a>
 
 📮┇<a href="t.me/tshakebbot">لـ تواصل </a> 
 ]]
@@ -7847,6 +7848,17 @@ if (data.ID == "UpdateNewMessage") then
 local Data_Tshake = data
 msg = data.message_
 text = msg.content_.text_
+if msg.date_ and msg.date_ < tonumber(os.time() - 30) then
+print('OLD MESSAGE')
+return false
+end
+                        -------------------------
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+if data.username_ ~= false then
+database:hset('tshake:'..bot_id..'user:'..msg.sender_user_id_,'username',(data.username_ or msg.sender_user_id_))
+print('Save User : @'..data.username_ or '')
+end;end,nil)
+			-------------------------
 if database:get('tshake:'..bot_id.."charge:"..msg.chat_id_) then
 database:sadd("thsake:good"..bot_id..os.date("%d"),msg.chat_id_)
 database:del("thsake:good"..bot_id..( tonumber(os.date("%d")) - 1) )
