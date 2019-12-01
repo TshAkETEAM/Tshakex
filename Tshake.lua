@@ -765,7 +765,7 @@ end
 function TSadd(msg) -- Function add && rem
 local text = msg.content_.text_
 if (text == 'تعطيل') and not is_sudo(msg) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -1113,7 +1113,7 @@ end
 end
 end
 if (text == 'تفعيل') and not is_sudo(msg) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -1191,7 +1191,7 @@ end
 getUser(msg.sender_user_id_, TSby)
 end
 if text == "تفعيل" and is_sudo(msg) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -1243,7 +1243,7 @@ end end
 getUser(msg.sender_user_id_, TSby)
 end
 if text == "تعطيل" and is_sudo(msg) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -2189,7 +2189,7 @@ send(msg.chat_id_, msg.id_, 1, text, 1, 'md')
 return false
 end
 if text:match("^رفع منشئ اساسي$") and msg.reply_to_message_id_ then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -2208,7 +2208,7 @@ end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
 end
 if text:match("^رفع منشئ اساسي @(.*)$") then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -2233,7 +2233,7 @@ end
 resolve_username(apmd[2],promote_by_username)
 end
 if text:match("^رفع منشئ اساسي (%d+)$") then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -2250,7 +2250,7 @@ database:sadd('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_, apmd[2])
 tsX000(apmd[2],msg,"🔖┇تم رفعة منشئ اساسي  في البوت")
 end
 if text:match("^تنزيل منشئ اساسي$") and msg.reply_to_message_id_ then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -2269,7 +2269,7 @@ end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
 end
 if text:match("^تنزيل منشئ اساسي @(.*)$") then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -2294,7 +2294,7 @@ end
 resolve_username(apmd[2],promote_by_username)
 end
 if text:match("^تنزيل منشئ اساسي (%d+)$") then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -2482,7 +2482,7 @@ send(msg.chat_id_, msg.id_, 1, '• المجموعات :\n📊┇عدد الكر
 end
 if tonumber(sudo_add) == tonumber(msg.sender_user_id_) then
 if text:match("^تفعيل الكل$") then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -2585,7 +2585,7 @@ send(msg.chat_id_, msg.id_, 1, "❕┇عدد ايام وقت المجموعه {"
 end
 end
 if text:match("^مغادره (-%d+)$")  then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -2603,7 +2603,7 @@ database:del("thsake:gog"..bot_id,txt[2])
 chat_leave(txt[2], bot_id)
 end
 if text:match('^المده1 (-%d+)$')  then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -2891,7 +2891,7 @@ database:set('key_ts'..bot_id,"yes")
 send(msg.chat_id_, msg.id_, 1, "☑┇تم تفعيل خاصيه الازرار الشفافه", 1, 'html')
 end
 if (text and text == 'تعطيل الانلاين') then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3090,7 +3090,7 @@ end
 end
 
 if text == "رفع منشئ" and is_creatorbasic(msg) and msg.reply_to_message_id_ then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3114,7 +3114,7 @@ end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,setcreator_by_reply)
 end
 if text:match("^رفع منشئ @(.*)$") and is_creatorbasic(msg) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3127,7 +3127,7 @@ send(msg.chat_id_, msg.id_, 1,'عذراً انتا محظور من جميع بو
 return false end
 end
 local apow = {string.match(text, "^(رفع منشئ) @(.*)$")}
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3151,7 +3151,7 @@ end
 resolve_username(apow[2],setcreator_by_username)
 end
 if text:match("^رفع منشئ (%d+)$") and is_creatorbasic(msg) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3164,7 +3164,7 @@ send(msg.chat_id_, msg.id_, 1,'عذراً انتا محظور من جميع بو
 return false end
 end
 local apow = {string.match(text, "^(رفع منشئ) (%d+)$")}
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3255,7 +3255,7 @@ send(msg.chat_id_, msg.id_, 1, text, 1, 'html')
 end
 ----------------------------------------
 if text:match("^رفع ادمن بالكروب (%d+)$") and  is_creatorbasic(msg) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3268,7 +3268,7 @@ send(msg.chat_id_, msg.id_, 1,'عذراً انتا محظور من جميع بو
 return false end
 end
 local apmd = {string.match(text, "^(رفع ادمن بالكروب) (%d+)$")}
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3284,7 +3284,7 @@ HTTPS.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?cha
 tsX000(apmd[2],msg,'🔖┇تم رفعة ادمن   في الكروب')
 end
 if text:match("^رفع ادمن بالكروب$")  and is_creatorbasic(msg) and msg.reply_to_message_id_ then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3303,7 +3303,7 @@ end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
 end
 if text:match("^رفع ادمن بالكروب @(.*)$") and is_creatorbasic(msg) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3330,7 +3330,7 @@ end
 --------------------------------------
 -------------------------------------
 if text:match("^رفع منشئ بالكروب (%d+)$") and  is_creatorbasic(msg) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3343,7 +3343,7 @@ send(msg.chat_id_, msg.id_, 1,'عذراً انتا محظور من جميع بو
 return false end
 end
 local apmd = {string.match(text, "^(رفع منشئ بالكروب) (%d+)$")}
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3359,7 +3359,7 @@ HTTPS.request("https://api.telegram.org/bot" .. token .. "/promoteChatMember?cha
 tsX000(apmd[2],msg,'🔖┇تم رفعة منشئ   في الكروب')
 end
 if text:match("^رفع منشئ بالكروب$")  and is_creatorbasic(msg) and msg.reply_to_message_id_ then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3378,7 +3378,7 @@ end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
 end
 if text:match("^رفع منشئ بالكروب @(.*)$") and is_creatorbasic(msg) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3460,7 +3460,7 @@ if text:match("^رفع ادمن$")  and (is_owner(msg) or is_creatorbasic(msg)) 
  if not is_creator(msg) and database:get("Tshake:lock:promote"..bot_id..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_, 1, "⚙️※ عذرا خاصية الرفع تم تعطيلها ❌ ", 1, 'md')
 return false end
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3487,7 +3487,7 @@ if text:match("^رفع ادمن @(.*)$") and (is_owner(msg) or is_creatorbasic(m
  if not is_creator(msg) and database:get("Tshake:lock:promote"..bot_id..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_, 1, "⚙️※ عذرا خاصية الرفع تم تعطيلها ❌ ", 1, 'md')
 return false end
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3512,7 +3512,7 @@ end
 resolve_username(apmd[2],promote_by_username)
 end
 if text:match("^رفع ادمن (%d+)$") and (is_owner(msg) or is_creatorbasic(msg)) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -3525,7 +3525,7 @@ send(msg.chat_id_, msg.id_, 1,'عذراً انتا محظور من جميع بو
 return false end
 end
 local apmd = {string.match(text, "^(رفع ادمن) (%d+)$")}
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -4260,7 +4260,7 @@ if text:match("^رفع مدير$") and (is_creator(msg) or is_creatorbasic(msg))
  if not is_creator(msg) and database:get("Tshake:lock:promote"..bot_id..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_, 1, "⚙️※ عذرا خاصية الرفع تم تعطيلها ❌ ", 1, 'md')
 return false end
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -4287,7 +4287,7 @@ if text:match("^رفع مدير @(.*)$") and (is_creator(msg) or is_creatorbasic
  if not is_creator(msg) and database:get("Tshake:lock:promote"..bot_id..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_, 1, "⚙️※ عذرا خاصية الرفع تم تعطيلها ❌ ", 1, 'md')
 return false end
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -4316,7 +4316,7 @@ if text:match("^رفع مدير (%d+)$") and (is_creator(msg) or is_creatorbasic
  if not is_creator(msg) and database:get("Tshake:lock:promote"..bot_id..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_, 1, "⚙️※ عذرا خاصية الرفع تم تعطيلها ❌ ", 1, 'md')
 return false end
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -4333,7 +4333,7 @@ database:sadd('tshake:'..bot_id..'owners:'..msg.chat_id_, apow[2])
 tsX000(apow[2],msg,"🔖┇تم رفعة مدير في البوت")
 end  
 if text:match("^تنزيل مدير$") and (is_creator(msg) or is_creatorbasic(msg)) and msg.reply_to_message_id_ then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -4357,7 +4357,7 @@ end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,deowner_by_reply)
 end  
 if text:match("^تنزيل مدير @(.*)$") and (is_creator(msg) or is_creatorbasic(msg)) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -4383,7 +4383,7 @@ end
 resolve_username(apow[2],remowner_by_username)
 end  
 if text:match("^تنزيل مدير (%d+)$") and (is_creator(msg) or is_creatorbasic(msg)) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -4401,7 +4401,7 @@ database:srem(hash, apow[2])
 tsX000(apow[2],msg,"🔰┇تم تنزيله من مدراء  البوت ")
 end
 if text:match("^الادمنيه$") and (is_owner(msg) or is_creatorbasic(msg)) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -5155,7 +5155,7 @@ end
 bot.channel_get_admins(msg.chat_id_,cb)
 end
 if text:match("^رفع الادمنيه$") and (is_owner(msg) or is_creatorbasic(msg)) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -5609,7 +5609,7 @@ return false end
 end
 
 if text:match("^اضف مطور$")  and tonumber(msg.sender_user_id_) == tonumber(sudo_add) and msg.reply_to_message_id_ then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -5634,7 +5634,7 @@ getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
 end
 
 if text:match("^اضف مطور @(.*)$") and tonumber(msg.sender_user_id_) == tonumber(sudo_add) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -5647,7 +5647,7 @@ send(msg.chat_id_, msg.id_, 1,'عذراً انتا محظور من جميع بو
 return false end
 end
 local apmd = {string.match(text, "^(اضف مطور) @(.*)$")}
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -5673,7 +5673,7 @@ resolve_username(apmd[2],promote_by_username)
 end
 
 if text:match("^اضف مطور (%d+)$") and tonumber(msg.sender_user_id_) == tonumber(sudo_add) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -5692,7 +5692,7 @@ tsX000(apmd[2],msg,'🔖┇تم رفعة مطور في البوت')
 end
 
 if text:match("^حذف مطور$") and tonumber(msg.sender_user_id_) == tonumber(sudo_add) and msg.reply_to_message_id_ then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -5718,7 +5718,7 @@ getMessage(msg.chat_id_, msg.reply_to_message_id_,demote_by_reply)
 end
 
 if text:match("^حذف مطور @(.*)$") and tonumber(msg.sender_user_id_) == tonumber(sudo_add) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
@@ -5744,7 +5744,7 @@ end
 resolve_username(apmd[2],demote_by_username)
 end  
 if text:match("^حذف مطور (%d+)$") and tonumber(msg.sender_user_id_) == tonumber(sudo_add) then
-local res = http.request('http://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
+local res = https.request('https://tshake.gq/TshakeX.php?id='..msg.sender_user_id_..'')
  
 if res then
 if res == 'false' then
