@@ -7868,9 +7868,9 @@ local text =  [[
 🔎┇<a href="https://t.me/TshakeMake_BOT">صنع بوتات حمايه 🥇</a>
 🔎┇<a href="https://t.me/SimSimi_Xbot">بوت سمسمي 💘</a>
 🔎┇<a href="https://t.me/Zaraf_Xbot">بوت زخرفه ⚜️</a>
-🔎┇<a href="https://t.me/TelTubebot">بوت يوتيوب 📥</a>
-🔎┇<a href="https://t.me/TelTubebot">بوت انستا ستوريات 📥</a>
-🔎┇<a href="https://t.me/TelTubebot">بوت فيس وتويتر 📥</a>					
+🔎┇<a href="https://t.me/YouTube_Xbot">بوت يوتيوب 📥</a>
+🔎┇<a href="https://t.me/YouTube_Xbot">بوت انستا ستوريات 📥</a>
+🔎┇<a href="https://t.me/YouTube_Xbot">بوت فيس وتويتر 📥</a>					
 
 📮┇<a href="t.me/tshakebbot">لـ تواصل </a> 
 ]]
