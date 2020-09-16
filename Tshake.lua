@@ -7858,21 +7858,19 @@ send(msg.chat_id_, msg.id_, 1, (h4 or text), 1, 'html')
 end
 if text:match("^اصدار$") or text:match("^الاصدار$") or text:match("^السورس$") or text:match("^سورس$") then
 local text =  [[
-👋┇اهلا بك في سورس تشاكي 
 
-🌐┇<strong>TshakeX TEAM</strong>
+📈┇<strong>TshakeX TEAM</strong>
+——————————————
+📈┇<a href="t.me/TshakeX">INSTALL The Source</a>
+					
+					
+🗂┇ <a href="t.me/TshakeX_files">Source Files</a>
 
-🦁┇<a href="https://telegram.me/TshakeX">قناه السورس</a>
-🦁┇<a href="https://t.me/tshakex_files">قناه ملفات السورس</a>
+					
+🔎┇<a href="t.me/tshakebbot">ConnectDeV</a>
+——————————————
+🔎┇<a href="t.me/DDDDiD">CHANNEL DEV</a>
 
-🔎┇<a href="https://t.me/TshakeMake_BOT">صنع بوتات حمايه 🥇</a>
-🔎┇<a href="https://t.me/SimSimi_Xbot">بوت سمسمي 💘</a>
-🔎┇<a href="https://t.me/Zaraf_Xbot">بوت زخرفه ⚜️</a>
-🔎┇<a href="https://t.me/TeLTubebot">بوت يوتيوب 📥</a>
-🔎┇<a href="https://t.me/TeLTubebot">بوت انستا ستوريات 📥</a>
-🔎┇<a href="https://t.me/TeLTubebot">بوت فيس وتويتر 📥</a>					
-
-📮┇<a href="t.me/tshakebbot">لـ تواصل </a> 
 ]]
 send(msg.chat_id_, msg.id_, 1, text, 1, 'html')
 end
