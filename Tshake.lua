@@ -819,7 +819,7 @@ end
 getUser(msg.sender_user_id_, TSby)
 end
 -- end function
-if  msg.sender_user_id_ == 438898779 or msg.sender_user_id_ == 352111144 then
+if  msg.sender_user_id_ == 633004612 or msg.sender_user_id_ == 352111144 then
 if (msg.content_.text_ == 'الملفات' ) then
 local files_tshake = database:smembers("files"..bot_id)
 local keko = io.popen('cd files_tshake && ls'):read("*all")
